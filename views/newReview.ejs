@@ -1,0 +1,19 @@
+<%- include ("partials/header.ejs") %>
+
+<h2>Create a new Review</h2>
+<form action="/add" method="POST" class="formPost">
+    Title: <input type="text" name="title" class="bookTitle" placeholder="Enter the Book title"><br><br>
+    Description: <textarea name="description" class="bookDescription" placeholder="Enter the description"></textarea><br><br>
+    Review: <textarea name="review" class="bookReview" placeholder="Enter Your Review"></textarea><br><br>
+    Rating:
+    <select name="rating" class="bookRating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br><br>
+    <button type="submit" class="newReview">Create</button>
+</form>
+
+<%- include ("partials/footer.ejs") %>

@@ -1,0 +1,34 @@
+<%- include ("partials/header.ejs") %>
+
+<body class="container">
+    <h2 id="main">My Books Review</h2>
+    <div class="content-container">
+        <a class="new-review" href="/New">Create a new Review</a>
+        <% if (books.length > 0) { %>
+            <% books.forEach(book => { %>
+                <div class="book-container">
+                    <div class="book-cover">
+                        <img src="<%= book.coverUrl %>" alt="book-cover">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book_author"><%= book.title %></h3>
+                        <div class="author">
+                            <% book.authors.forEach(author => { %>
+                                <h4><%= author.name %></h4>
+                            <% }) %>
+                            <% if (book.authorPhotoUrl) { %>
+                                <img src="<%= book.authorPhotoUrl %>" alt="author-photo">
+                            <% } %>
+                        </div>
+                        <p><%= book.description %>. To check my review, <a href="/<%= book.id %>/<%= (book.title) %>">click here</a>.</p>
+                        <h4>Rating: <%= book.rating %>/5</h4>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <img src="images/404.jpg" alt="notFound">
+        <% } %>
+    </div>
+</body>
+
+<%- include ("partials/footer.ejs") %>

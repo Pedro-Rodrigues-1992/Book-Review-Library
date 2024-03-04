@@ -1,0 +1,24 @@
+
+<%- include ("partials/header.ejs") %>
+
+<a href="/" class="homepage">Homepage</a>
+
+<h2>Update Review</h2>
+<form action="/update/<%= book.id %>/<%= book.title %>" method="POST" class="formPost">
+    Title: <input type="text" name="bookTitle" class="bookTitle" value="<%= book.title %>" placeholder="Enter updated title">
+    Description: <textarea name="bookDescription" class="bookDescription" placeholder="Enter updated book description"><%= book.description %></textarea>
+    Review: <textarea name="bookReview" class="bookReview" placeholder="Enter updated book Review"><%= book.review %></textarea>
+    <h4>Current book rating: <%= book.rating %></h4>
+    Rating: <select name="bookRating" class="bookRating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <button type="submit" class="NewUpdate">Update</button>
+</form>
+
+<%- include ("partials/footer.ejs") %>
+
+

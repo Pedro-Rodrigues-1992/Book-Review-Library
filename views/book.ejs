@@ -1,0 +1,33 @@
+<%- include ("partials/header.ejs") %>
+
+<a href="/" class="homepage">Go back</a>
+
+<button type="button" class="delete-button" onclick="confirmDelete('<%= book.id %>')">Delete review</button>
+
+<body class="container">
+    <div class="content book-container_page">
+        <div class="book-cover">
+            <img src="<%= book.coverUrl %>" alt="book-cover">
+        </div>
+        <div class="book-details">
+            <h3 class="book_author_page"><%= book.title %></h3>
+            <% book.authors.forEach(author => { %>
+                <div class="author">
+                    <p><%= author.name %></p>
+                    <% if (author.authorPhotoUrl) { %>
+                        <img src="<%= author.authorPhotoUrl %>" alt="author-photo">
+                    <% } %>
+                </div>
+            <% }) %>      
+            <h2><%= book.description %></h2>
+            <p><%= book.review %></p>
+            <h4 class="Rate">Rate: <%= book.rating %>/5</h4>
+        </div>
+    </div>
+</body>
+
+<a href="/update/<%= book.id %>/<%= book.title %>" class="update">Update</a>
+
+<script src="/scripts/deleteConfirmation.js"></script>
+
+<%- include ("partials/footer.ejs") %>
